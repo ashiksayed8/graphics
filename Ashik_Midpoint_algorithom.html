@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="application/javascript">
+        function draw() {
+
+
+            var DrawPixel1 = function (x, y) {
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(x, y, 1, 1);
+            }
+            var DrawPixel2 = function (x, y) {
+                ctx.fillStyle = 'white';
+                ctx.fillRect(x, y, 1, 1);
+            }
+            var DrawPixel3 = function (x, y) {
+                ctx.fillStyle = 'green';
+                ctx.fillRect(x, y, 1, 1);
+            }
+
+            var DrawPixel4 = function (x, y) {
+                ctx.fillStyle = 'yellow';
+                ctx.fillRect(x, y, 1, 1);
+            }
+
+            var DrawPixel5 = function (x, y) {
+                ctx.fillStyle = 'green';
+                ctx.fillRect(x, y, 1, 1);
+            }
+
+            var DrawPixel6 = function (x, y) {
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(x, y, 1, 1);
+            }
+
+            var DrawPixel7 = function (x, y) {
+                ctx.fillStyle = 'red';
+                ctx.fillRect(x, y, 1, 1);
+            }
+            var DrawPixel8 = function (x, y) {
+                ctx.fillStyle = 'red';
+                ctx.fillRect(x, y, 1, 1);
+            }
+
+            var DrawCirle = function (x0, y0, radius) {
+
+                var x = 0;
+                var y = radius;
+                var radiusError = 1 - y;
+
+                while (x <= y) {
+                    DrawPixel1(x + x0, y + y0);
+                    DrawPixel2(y + x0, x + y0);
+                    DrawPixel3(-x + x0, y + y0);
+                    DrawPixel4(-y + x0, x + y0);
+                    DrawPixel5(-x + x0, -y + y0);
+                    DrawPixel6(-y + x0, -x + y0);
+                    DrawPixel7(x + x0, -y + y0);
+                    DrawPixel8(y + x0, -x + y0);
+
+
+                    if (radiusError < 0) {
+                        radiusError += 2 * x + 3;
+                    }
+                    else {
+                        radiusError+= 2 * (x - y )+ 5;
+                        y--;
+                    }
+                    x++;
+                }
+            };
+
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext('2d');
+            var r1 = document.getElementById("radius1").value;
+            var x1 = document.getElementById("x1").value;
+            var y1 = document.getElementById("y1").value;
+            var r2 = parseInt(r1);
+            var x2 = parseInt(x1);
+            var y2 = parseInt(y1);
+            DrawCirle(x2, y2,r2 )
+
+
+
+
+
+        }
+    </script>
+</head>
+<body >
+    Radius:<input id="radius1">
+    X:<input id="x1">
+    Y: <input id="y1">
+    <button type="button" onclick="draw()">Submit</button>
+    <canvas id="canvas" style="background-color: #827979" width="1000" height="1000"></canvas>
+
+
+
+</body>
+</html>
