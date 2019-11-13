@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="application/javascript">
+                    function draw() {
+
+                    
+                    for (var i = 0; i < document.images.length; i++) {
+
+                      
+                      if (document.images[i].getAttribute('id') != 'frame') {
+
+                        
+                        canvas = document.createElement('canvas');
+                        canvas.setAttribute('width', 200);
+                        canvas.setAttribute('height', 200);
+
+                        
+                        document.images[i].parentNode.insertBefore(canvas,document.images[i]);
+
+                        ctx = canvas.getContext('2d');
+
+                       
+                        // Add frame
+                        ctx.drawImage(document.getElementById('frame'), 0,0,canvas.width,canvas.height);
+
+                        // Draw image to canvas
+                        ctx.drawImage(document.images[i], 20,20,160,160);
+                      }
+                    }
+                  }
+    </script>
+
+    <style type="text/css">
+
+                      
+                body {
+                margin-top: 100px;
+                margin-bottom: 100px;
+                margin-right: 150px;
+                margin-left: 200px;
+                  background-image: url('picture/background.jpg');
+                }
+
+                img {
+                  display: none;
+                 
+
+                table {
+                  margin: 0 auto;
+                }
+
+                td {
+                  padding: 35px;
+                }
+
+      
+
+
+    </style>
+
+</head>
+
+  >
+ <body onload="draw();">
+     <table>
+      <tr>
+        <td><img src="picture/1pic.jpg"></td>
+        <td><img src="picture/2pic.jpg"></td>
+        <td><img src="picture/3pic.jpg"></td>
+        <td><img src="picture/4pic.jpg"></td>
+      </tr>
+      <tr>
+        <td><img src="picture/5pic.jpg"></td>
+        <td><img src="picture/6pic.jpg"></td>
+        <td><img src="picture/7pic.jpg"></td>
+        <td><img src="picture/8pic.jpg"></td>
+      </tr>
+      <tr>
+        <td><img src="picture/9pic.jpg"></td>
+        <td><img src="picture/10pic.jpg"></td>
+        <td><img src="picture/11pic.jpg"></td>
+        <td><img src="picture/12pic.jpg"></td>
+      </tr>
+      <tr>
+        <td><img src="picture/13pic.jpg"></td>
+        <td><img src="picture/14pic.jpg"></td>
+        <td><img src="picture/15pic.jpg"></td>
+        <td><img src="picture/16pic.jpg"></td>
+      </tr>
+     </table>
+     <img id="frame" src="picture/frame1.jpg" width="200" height="200">
+ </body>
+
+
+
+ 
+</html>
