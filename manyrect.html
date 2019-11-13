@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="application/javascript">
+        function draw() {0
+
+
+            var Draw = function (x0, y0,x1,y1,x2,y2,x3) {
+
+
+                for (var i = 0; i < x0; i++) {
+                    for (var j = 0; j < y0; j++) {
+                        ctx.save();
+                        ctx.fillStyle = 'rgb(' + (x1 * i) + ', ' + (y1 - 51 * i) + ',' + (x2) +')';
+                        ctx.translate(10 + j * 50, 10 + i * 50);
+                        ctx.fillRect(0, 0, y2, x3);
+                        ctx.restore();
+                    }
+                }
+
+
+            };
+
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext('2d');
+            var x1 = document.getElementById("x1").value;
+            var y1 = document.getElementById("y1").value;
+            var x2 = document.getElementById("x2").value;
+            var y2 = document.getElementById("y2").value;
+            var x3 = document.getElementById("x3").value;
+            var y3 = document.getElementById("y3").value;
+            var x4 = document.getElementById("x4").value;
+            
+            var a1 = parseInt(x1);
+            var b1 = parseInt(y1);
+            var a2 = parseInt(x2);
+            var b2 = parseInt(y2);
+            var a3 = parseInt(x3);
+            var b3 = parseInt(y3);
+            var a4 = parseInt(x4);
+            
+            Draw(a1,b1,a2,b2,a3,b3,a4 );
+
+
+
+
+
+        }
+    </script>
+
+</head>
+
+  <body>
+    <div style="float:left;margin-left: 20px; ">
+  <form>
+
+       <span style="font-size:120%; "> X:</span><input id="x1"> <br><br>
+       <span style="font-size:120%; ">Y:</span> <input id="y1"><br><br>
+       <span style="font-size:120%;color: red; ">Red:</span><input id="x2"><br><br>
+       <span style="font-size:120%;color: green; ">Green:</span> <input id="y2"><br><br>
+       <span style="font-size:120%;color: blue; "> Blue:</span> <input id="x3"><br><br>
+       <span style="font-size:120% ; ">Width:</span> <input id="y3"><br><br>
+       <span style="font-size:120%; "> Height:</span> <input id="x4"><br><br>
+        <button type="button" style="background:green; " onclick="draw()">Submit</button>
+  </form>
+
+</div>
+ 
+        <canvas id="canvas" style="background-color: #827979;float:right;margin-left: 20px;" width="1000" height="1000">
+            
+        </canvas>
+
+ 
+
+
+  </body>
+</html>
